@@ -1,4 +1,5 @@
-/*MIT License
+/*
+MIT License
 
 Copyright (c) 2019 mohamed ez-zarghili
 
@@ -44,16 +45,16 @@ SOFTWARE.*/
                         data = respenseData
                     }
                     callback(data, xhr)
+                    return
                 }
-                return
+                fns[2] && fns[2]({
+                    error: "net/timout... error"
+                }, xhr)
             }
-            error && error({
-                error: "error accured"
-            }, xhr);
         }
         return xhr
     }
-    methods = ['GET', "POST"];
+    methods = ['GET', "POST", "PUT", "PATCH", "DELETE"];
     methods.map(method => {
         window.xorq[method.toLowerCase()] = (url, data, headers = {}, xh = window.xorq.headers) => {
             xhr = _prep(url, method);

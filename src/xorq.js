@@ -54,9 +54,8 @@ SOFTWARE.*/
         }
         return xhr
     }
-    methods = ['GET', "POST", "PUT", "PATCH", "DELETE"];
-    methods.map(method => {
-        window.xorq[method.toLowerCase()] = (url, data, headers = {}, xh = window.xorq.headers) => {
+    ['HEAD', 'GET', "POST", "PUT", "PATCH", "DELETE"].map(method => {
+        window.xorq[method.toLowerCase()] = (url, data, headers = {}, xh = window.xorq.headers, xhr) => {
             xhr = _prep(url, method);
             xh || (xh = {})
             headers = Object.assign({}, xh, headers);

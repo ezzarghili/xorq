@@ -52,7 +52,7 @@ xorq.post("http://example.com", data, headers)
         // error
         (data, xhr) => console.error(data, xhr)
     )
-// if but global and request are set from previous example, result:
+// if both global and request are set, from previous example, result:
 {"X-API-VERSION":"v1", "X-USER-ID":"@2"} // request headers override global ones
 
 // set timout
